@@ -1,0 +1,68 @@
+﻿@{
+    ViewData["Title"] = "Add a Movie";
+}
+<h1>@ViewData["Title"]</h1>
+
+@model Mission7.Models.MovieSubmission
+
+<form method="post" class="form-group">
+
+    <!-- Validation -->
+    <div asp-validation-summary="All"></div>
+
+    <!-- MovieTitle -->
+    <label asp-for="Title">Title</label>
+    <input id="Title" class="form-control" asp-for="Title" />
+    <br />
+
+    <!-- Categories -->
+    <label asp-for="CategoryID">Category</label>
+    <select asp-for="CategoryID" class="form-control">
+        <option value="">Select a Category</option>
+        @foreach (Category m in ViewBag.Categories)
+        {
+            <option value="@m.CategoryId">@m.CategoryName</option>
+        }
+    </select>
+    <br />
+
+    <!-- Year -->
+    <label asp-for="Year">Year</label>
+    <input id="Year" class="form-control" asp-for="Year" />
+    <br />
+
+    <!-- Director -->
+    <label asp-for="Director">Director</label>
+    <input id="Director" class="form-control" asp-for="Director" />
+    <br />
+
+    <!-- Rating -->
+    <label asp-for="Rating">Rating</label>
+    <select id="Rating" class="form-control" asp-for="Rating">
+        <option value="G">G</option>
+        <option value="G">PG</option>
+        <option value="G">PG-13</option>
+        <option value="G">R</option>
+    </select>
+    <br />
+
+    <!-- Lent_To -->
+    <label asp-for="Lent_To">Lent To:</label>
+    <input id="Lent_To" class="form-control" asp-for="Lent_To" />
+    <br />
+
+    <!-- Notes -->
+    <label asp-for="Notes">Notes</label>
+    <textarea rows="4" class="form-control" id="Notes" asp-for="Notes"></textarea>
+    <br />
+
+    <!-- Edited -->
+    <label asp-for="Edited">Edited</label>
+    <input id="Edited" type="checkbox" asp-for="Edited" />
+    <br />
+
+    <!-- Submit -->
+    <input id="Form" type="submit" value="Submit" />
+
+</form>
+
